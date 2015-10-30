@@ -2,7 +2,7 @@
 import re
 cmds = []
 if ros_buildfarm_repository.version and re.match('[0-9a-f]{40}', ros_buildfarm_repository.version):
-    # can't create a shallow clone for hashes
+    # cannot create a shallow clone for hashes
     cmds += [
         'git clone %s ros_buildfarm' % ros_buildfarm_repository.url,
         'git checkout %s' % ros_buildfarm_repository.version,
