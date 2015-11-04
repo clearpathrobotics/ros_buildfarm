@@ -533,6 +533,8 @@ def _get_sourcedeb_job_config(
         'credential_id': build_file.upload_credential_id,
 
         'git_ssh_credential_id': config.git_ssh_credential_id,
+
+        'repo_apt_pins': config.repo_apt_pins,
     }
     job_config = expand_template(template_name, job_data)
     return job_config
@@ -601,6 +603,8 @@ def _get_binarydeb_job_config(
         'timeout_minutes': build_file.jenkins_binary_job_timeout,
 
         'credential_id': build_file.upload_credential_id,
+
+        'repo_apt_pins': config.repo_apt_pins,
     }
     job_config = expand_template(template_name, job_data)
     return job_config

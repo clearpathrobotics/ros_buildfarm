@@ -210,3 +210,11 @@ def add_argument_vcs_information(parser):
         '--vcs-info',
         required=True,
         help='The vcs type, version and url separated by a space')
+
+def add_argument_repo_apt_pins(parser):
+    parser.add_argument(
+        '--repo-apt-pins',
+        nargs='+',
+        required=True,
+        help="The colon separated tuple containing a repository host name " +
+             "and a priority (e.g. 'my-bf-repo:900')")

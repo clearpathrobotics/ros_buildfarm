@@ -28,6 +28,7 @@ from ros_buildfarm.argument import add_argument_force
 from ros_buildfarm.argument import add_argument_output_dir
 from ros_buildfarm.argument import add_argument_repository_name
 from ros_buildfarm.argument import add_argument_vcs_information
+from ros_buildfarm.argument import add_argument_repo_apt_pins
 from ros_buildfarm.common import find_executable
 from ros_buildfarm.common import get_binary_package_versions
 from ros_buildfarm.common import get_debian_package_name
@@ -91,6 +92,7 @@ def main(argv=sys.argv[1:]):
     add_argument_vcs_information(parser)
     add_argument_distribution_repository_urls(parser)
     add_argument_distribution_repository_key_files(parser)
+    add_argument_repo_apt_pins(parser)
     add_argument_force(parser)
     add_argument_output_dir(parser, required=True)
     add_argument_dockerfile_dir(parser)
@@ -494,6 +496,8 @@ def main(argv=sys.argv[1:]):
 
         'ordered_pkg_tuples': ordered_pkg_tuples,
         'rosdoc_config_files': rosdoc_config_files,
+
+        'repo_apt_pins' : args.repo_apt_pins,
     }
     create_dockerfile(
         'doc/doc_task.Dockerfile.em', data, args.dockerfile_dir)

@@ -280,6 +280,8 @@ def _get_doc_job_config(
         'credential_id': build_file.upload_credential_id,
 
         'git_ssh_credential_id': config.git_ssh_credential_id,
+
+        'repo_apt_pins': config.repo_apt_pins,
     }
     job_config = expand_template(template_name, job_data)
     return job_config

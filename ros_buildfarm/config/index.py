@@ -129,6 +129,11 @@ class Index(object):
 
         self.rosdistro_index_url = data['rosdistro_index_url']
 
+        self.repo_apt_pins = []
+        if 'repo_apt_pins' in data:
+            self.repo_apt_pins = data['repo_apt_pins']
+            assert isinstance(self.repo_apt_pins, dict)
+
         self.status_page_repositories = {}
         if 'status_page_repositories' in data:
             assert isinstance(data['status_page_repositories'], dict)

@@ -131,6 +131,7 @@ if pull_request:
         ' ' + os_code_name +
         ' ' + arch +
         ' ' + ' '.join(repository_args) +
+        ' --repo-apt-pins ' + ' '.join([ '{}:{}'.format(host,priority) for host, priority in sorted(repo_apt_pins.items())]) +
         ' --dockerfile-dir $WORKSPACE/docker_generating_dockers',
         'echo "# END SECTION"',
         '',

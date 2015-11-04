@@ -39,6 +39,11 @@ RUN echo deb http://http.debian.net/debian @os_code_name contrib non-free | tee 
 @[end if]@
 
 @(TEMPLATE(
+    'snippet/add_repo_apt_pins.Dockerfile.em',
+    repo_apt_pins=repo_apt_pins,
+))@
+
+@(TEMPLATE(
     'snippet/add_wrapper_scripts.Dockerfile.em',
     wrapper_scripts=wrapper_scripts,
 ))@

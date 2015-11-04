@@ -10,6 +10,7 @@ from ros_buildfarm.argument import \
     add_argument_distribution_repository_key_files
 from ros_buildfarm.argument import add_argument_distribution_repository_urls
 from ros_buildfarm.argument import add_argument_dockerfile_dir
+from ros_buildfarm.argument import add_argument_repo_apt_pins
 from ros_buildfarm.common import get_binary_package_versions
 from ros_buildfarm.common import get_debian_package_name
 from ros_buildfarm.common import get_distribution_repository_keys
@@ -46,6 +47,7 @@ def main(argv=sys.argv[1:]):
         help="The architecture (e.g. 'amd64')")
     add_argument_distribution_repository_urls(parser)
     add_argument_distribution_repository_key_files(parser)
+    add_argument_repo_apt_pins(parser)
     add_argument_dockerfile_dir(parser)
     parser.add_argument(
         '--testing',
@@ -135,6 +137,8 @@ def main(argv=sys.argv[1:]):
 
         'testing': args.testing,
         'prerelease_overlay': len(args.workspace_root) > 1,
+
+        'repo_apt_pins': args.repo_apt_pins,
     }
     create_dockerfile(
         'devel/devel_task.Dockerfile.em', data, args.dockerfile_dir)

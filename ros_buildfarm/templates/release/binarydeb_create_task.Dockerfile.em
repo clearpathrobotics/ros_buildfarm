@@ -83,6 +83,7 @@ cmds.append(
     ' ' + arch +
     ' --distribution-repository-urls ' + ' '.join(distribution_repository_urls) +
     ' --distribution-repository-key-files ' + ' ' .join(['/tmp/keys/%d.key' % i for i in range(len(distribution_repository_keys))]) +
+    ' --repo-apt-pins ' + ' '.join(repo_apt_pins) +
     ' --binarydeb-dir ' + binarydeb_dir +
     ' --dockerfile-dir ' + dockerfile_dir)
 }@

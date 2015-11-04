@@ -98,6 +98,7 @@
         ' ' + os_code_name +
         ' ' + arch +
         ' ' + ' '.join(repository_args) +
+        ' --repo-apt-pins ' + ' '.join([ '{}:{}'.format(host,priority) for host, priority in sorted(repo_apt_pins.items())]) +         
         ' --binarydeb-dir $WORKSPACE/binarydeb' +
         ' --dockerfile-dir $WORKSPACE/docker_generating_docker' +
         (' --append-timestamp' if append_timestamp else ''),

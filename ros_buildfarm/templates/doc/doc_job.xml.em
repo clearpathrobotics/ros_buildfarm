@@ -147,6 +147,7 @@
         ' ' + arch +
         ' --vcs-info "%s %s %s"' % (doc_repo_spec.type, doc_repo_spec.version if doc_repo_spec.version is not None else '', doc_repo_spec.url) +
         ' ' + ' '.join(repository_args) +
+        ' --repo-apt-pins ' + ' '.join([ '{}:{}'.format(host,priority) for host, priority in sorted(repo_apt_pins.items())]) +         
         ' $FORCE_FLAG' +
         ' --dockerfile-dir $WORKSPACE/docker_generating_docker',
         'echo "# END SECTION"',

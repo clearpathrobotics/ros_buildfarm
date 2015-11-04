@@ -58,6 +58,7 @@ cmds = [
     ' --vcs-info "%s"' % vcs_info + \
     ' --distribution-repository-urls ' + ' '.join(distribution_repository_urls) + \
     ' --distribution-repository-key-files ' + ' ' .join(['/tmp/keys/%d.key' % i for i in range(len(distribution_repository_keys))]) + \
+    ' --repo-apt-pins ' + ' '.join(repo_apt_pins) + \
     (' --force' if force else '') + \
     ' --output-dir /tmp/generated_documentation' + \
     ' --dockerfile-dir /tmp/docker_doc',

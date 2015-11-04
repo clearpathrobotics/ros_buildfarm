@@ -87,6 +87,7 @@
         ' ' + os_name +
         ' ' + os_code_name +
         ' ' + ' '.join(repository_args) +
+        ' --repo-apt-pins ' + ' '.join([ '{}:{}'.format(host,priority) for host, priority in sorted(repo_apt_pins.items())]) +
         ' --source-dir $WORKSPACE/sourcedeb/source' +
         ' --dockerfile-dir $WORKSPACE/docker_sourcedeb',
         'echo "# END SECTION"',

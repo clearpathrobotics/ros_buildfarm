@@ -21,6 +21,7 @@ from ros_buildfarm.argument import add_argument_os_name
 from ros_buildfarm.argument import add_argument_package_name
 from ros_buildfarm.argument import add_argument_rosdistro_index_url
 from ros_buildfarm.argument import add_argument_rosdistro_name
+from ros_buildfarm.argument import add_argument_repo_apt_pins
 from ros_buildfarm.common import get_binary_package_versions
 from ros_buildfarm.common import get_debian_package_name
 from ros_buildfarm.common import get_distribution_repository_keys
@@ -39,6 +40,7 @@ def main(argv=sys.argv[1:]):
     add_argument_arch(parser)
     add_argument_distribution_repository_urls(parser)
     add_argument_distribution_repository_key_files(parser)
+    add_argument_repo_apt_pins(parser)
     add_argument_binarydeb_dir(parser)
     add_argument_dockerfile_dir(parser)
     args = parser.parse_args(argv)
@@ -88,6 +90,8 @@ def main(argv=sys.argv[1:]):
         'rosdistro_name': args.rosdistro_name,
         'package_name': args.package_name,
         'binarydeb_dir': args.binarydeb_dir,
+
+        'repo_apt_pins': args.repo_apt_pins,
     }
     create_dockerfile(
         'release/binarydeb_task.Dockerfile.em', data, args.dockerfile_dir)

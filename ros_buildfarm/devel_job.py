@@ -345,6 +345,8 @@ def _get_devel_job_config(
         'timeout_minutes': build_file.jenkins_job_timeout,
 
         'git_ssh_credential_id': config.git_ssh_credential_id,
+
+        'repo_apt_pins': config.repo_apt_pins,
     }
     job_config = expand_template(template_name, job_data)
     return job_config

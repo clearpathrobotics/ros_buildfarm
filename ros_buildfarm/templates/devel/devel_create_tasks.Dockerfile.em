@@ -58,7 +58,8 @@ cmd = \
     ' --os-code-name ' + os_code_name + \
     ' --arch ' + arch + \
     ' --distribution-repository-urls ' + ' '.join(distribution_repository_urls) + \
-    ' --distribution-repository-key-files ' + ' ' .join(['/tmp/keys/%d.key' % i for i in range(len(distribution_repository_keys))])
+    ' --distribution-repository-key-files ' + ' ' .join(['/tmp/keys/%d.key' % i for i in range(len(distribution_repository_keys))]) + \
+    ' --repo-apt-pins ' + ' '.join(repo_apt_pins)
 cmds += [
     cmd +
     ' --dockerfile-dir /tmp/docker_build_and_install',

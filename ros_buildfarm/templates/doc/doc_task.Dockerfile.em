@@ -30,6 +30,11 @@ RUN useradd -u @uid -m buildfarm
     add_source=False,
 ))@
 
+@(TEMPLATE(
+    'snippet/add_repo_apt_pins.Dockerfile.em',
+    repo_apt_pins=repo_apt_pins,
+))@
+
 @[if os_name == 'ubuntu']@
 # Enable multiverse
 RUN sed -i "/^# deb.*multiverse/ s/^# //" /etc/apt/sources.list
