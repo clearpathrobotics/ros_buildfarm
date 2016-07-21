@@ -157,7 +157,11 @@ def configure_release_jobs(
                   (pkg_name), file=sys.stderr)
             continue
         pkg_xml = dist_cache.release_package_xmls[pkg_name]
+        print(pkg_xml)
+        print("")
         pkg = parse_package_string(pkg_xml)
+        print("pkg object is:")
+        print(pkg)
         pkgs[pkg_name] = pkg
 
     ordered_pkg_tuples = topological_order_packages(pkgs)
