@@ -151,6 +151,7 @@ def configure_release_jobs(
     from ros_buildfarm.common import topological_order_packages
     pkgs = {}
     for pkg_name in pkg_names:
+        print("pkg_name is {}".format(pkg_name))
         if pkg_name not in dist_cache.release_package_xmls:
             print("Skipping package '%s': no released package.xml in cache" %
                   (pkg_name), file=sys.stderr)
@@ -158,6 +159,7 @@ def configure_release_jobs(
         pkg_xml = dist_cache.release_package_xmls[pkg_name]
         pkg = parse_package_string(pkg_xml)
         pkgs[pkg_name] = pkg
+
     ordered_pkg_tuples = topological_order_packages(pkgs)
 
     other_build_files = [v for k, v in build_files.items() if k != release_build_name]
